@@ -80,7 +80,7 @@ p { margin: 0 0 1em; }
   overflow: hidden;
   padding-bottom: 0;
 }
-.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-top: 64px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-top: 44px; }
 .hero p.lead { font-size: 21px; color: #d6e2ff; max-width: 520px; }
 .hero .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 30px; }
 .pill { border: 1.5px solid rgba(140, 180, 255, 0.7); background: rgba(25, 75, 170, 0.6); border-radius: 99px; padding: 5px 14px; font-size: 15px; font-weight: 600; }
@@ -151,11 +151,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: cent
 footer a { color: #c8d6f5; text-decoration: none; }
 footer .spacer { flex: 1; }
 
-/* Telefonen på forsiden viser en rigtig optagelse af appen. */
-.demo .screen { position: relative; overflow: hidden; border: 12px solid #121216; border-bottom: 0; border-radius: 46px 46px 0 0; box-shadow: 0 -10px 60px rgba(0, 0, 20, 0.45); background: #f2f2f7; }
+/* Telefonen på forsiden viser en rigtig optagelse af appen – hele skærmen, også menuen i bunden. */
+.hero .phone.demo { width: 100%; max-width: 270px; max-height: none; overflow: visible; align-self: center; margin: 0 auto 56px; }
+.demo .screen { position: relative; overflow: hidden; border: 10px solid #121216; border-radius: 48px; box-shadow: 0 30px 70px rgba(0, 0, 20, 0.5), 0 0 0 1.5px #3a3a40; background: #f2f2f7; }
 .demo .screen video { display: block; width: 100%; height: auto; aspect-ratio: 600 / 1304; }
-
-/* Telefonen skæres af nederst af skærmen selv, så skyggen ikke klippes til en firkant. */
-.hero .phone.demo { overflow: visible; max-height: none; }
-.demo .screen { max-height: 560px; }
-@media (max-width: 820px) { .demo .screen { max-height: 420px; } }
+@media (max-width: 820px) { .hero .phone.demo { max-width: 260px; } }
