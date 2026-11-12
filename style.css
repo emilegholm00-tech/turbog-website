@@ -151,64 +151,10 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: cent
 footer a { color: #c8d6f5; text-decoration: none; }
 footer .spacer { flex: 1; }
 
-/* Animeret telefon på forsiden: en tur bliver kørt, Turbog spørger, og beløbet lægges til. */
-.demo .screen { position: relative; container-type: inline-size; overflow: hidden; border: 12px solid #121216; border-bottom: 0; border-radius: 46px 46px 0 0; box-shadow: 0 -10px 60px rgba(0, 0, 20, 0.45); background: #f2f2f7; }
-.demo .screen > img { border: 0; border-radius: 0; box-shadow: none; }
-.demo .island {
-  position: absolute; top: 2.6cqw; left: 50%; transform: translateX(-50%);
-  width: 31cqw; height: 9cqw; border-radius: 99px; background: #000; color: #fff;
-  display: flex; align-items: center; gap: 2cqw; padding: 0 3.4cqw; overflow: hidden; white-space: nowrap;
-  font: 600 3.6cqw/1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  transition: width 0.6s cubic-bezier(.2, .9, .3, 1.2), height 0.6s cubic-bezier(.2, .9, .3, 1.2);
-}
-.demo .island > * { opacity: 0; transition: opacity 0.3s; }
-.demo.driving .island { width: 82cqw; height: 13cqw; }
-.demo.driving .island > * { opacity: 1; transition-delay: 0.25s; }
-.demo .island .car { width: 7cqw; height: 7cqw; border-radius: 2cqw; background: linear-gradient(#3390ff, #0057d9); display: grid; place-items: center; font-size: 4cqw; flex: none; }
-.demo .island .dot { width: 2cqw; height: 2cqw; border-radius: 50%; background: #34c759; animation: pulse 1.2s infinite; flex: none; }
-.demo .island .km { margin-left: auto; font-size: 5cqw; font-variant-numeric: tabular-nums; }
-@keyframes pulse { 50% { opacity: 0.25; } }
+/* Telefonen på forsiden viser en rigtig optagelse af appen. */
+.demo .screen { position: relative; overflow: hidden; border: 12px solid #121216; border-bottom: 0; border-radius: 46px 46px 0 0; box-shadow: 0 -10px 60px rgba(0, 0, 20, 0.45); background: #f2f2f7; }
+.demo .screen video { display: block; width: 100%; height: auto; aspect-ratio: 600 / 1304; }
 
-.demo .notif {
-  position: absolute; left: 3cqw; right: 3cqw; top: 3cqw; padding: 3.6cqw; border-radius: 6cqw;
-  background: rgba(250, 250, 252, 0.94); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 4cqw 10cqw rgba(0, 0, 30, 0.28); color: #000;
-  font: 400 3.7cqw/1.3 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  transform: translateY(-140%); transition: transform 0.55s cubic-bezier(.2, .9, .3, 1.1);
-}
-.demo.notify .notif { transform: none; }
-.demo .notif .head { display: flex; align-items: center; gap: 2.2cqw; color: #6e6e73; font-size: 3.3cqw; margin-bottom: 1.6cqw; }
-.demo .notif .head img { width: 5.6cqw; height: 5.6cqw; border-radius: 1.4cqw; border: 0; box-shadow: none; }
-.demo .notif .head span:last-child { margin-left: auto; }
-.demo .notif strong { display: block; font-size: 4cqw; }
-.demo .notif .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; margin-top: 3cqw; }
-.demo .notif .btns span { text-align: center; padding: 2.4cqw 0; border-radius: 99px; color: #fff; font-weight: 600; transition: transform 0.15s, filter 0.15s; }
-.demo .notif .btn-b { background: #0a6ef5; }
-.demo .notif .btn-p { background: #6e5ae0; }
-.demo.pressed .notif .btn-b { transform: scale(0.94); filter: brightness(0.85); }
-
-.demo .tap { position: absolute; width: 12cqw; height: 12cqw; margin: -6cqw 0 0 -6cqw; border-radius: 50%; background: rgba(255, 255, 255, 0.55); border: 2px solid rgba(0, 0, 0, 0.18); opacity: 0; transform: scale(1.6); transition: opacity 0.25s, transform 0.25s; pointer-events: none; }
-.demo.pressed .tap { opacity: 1; transform: scale(1); }
-
-.demo .month { position: absolute; top: 96cqw; right: 3cqw; width: 57cqw; height: 6.4cqw; white-space: nowrap; background: #f2f2f7; color: #85858b; text-align: right; padding-right: 6.5cqw; font: 600 4.4cqw/6.4cqw -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; font-variant-numeric: tabular-nums; opacity: 0; }
-.demo.counted .month { opacity: 1; }
-.demo .month b { color: #0a6ef5; font-weight: 600; transition: color 1.2s; }
-
-.demo .toast {
-  position: absolute; left: 50%; top: 3cqw; transform: translate(-50%, -20cqw);
-  background: #1c1c1e; color: #fff; border-radius: 99px; padding: 3cqw 5cqw; white-space: nowrap;
-  font: 600 4cqw/1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  box-shadow: 0 3cqw 8cqw rgba(0, 0, 0, 0.35); transition: transform 0.5s cubic-bezier(.2, .9, .3, 1.2);
-}
-.demo .badge { position: absolute; left: 12.92cqw; top: 59.28cqw; width: 7.9cqw; height: 7.9cqw; transform: translate(-50%, -50%) scale(0.4); border-radius: 50%; background: linear-gradient(#3d9bff, #0a6ef5); display: grid; place-items: center; opacity: 0; transition: opacity 0.3s, transform 0.4s cubic-bezier(.2, .9, .3, 1.4); }
-.demo .badge svg { width: 55%; height: 55%; }
-.demo.counted .badge { opacity: 1; transform: translate(-50%, -50%); }
-.demo .toast em { font-style: normal; color: #4cd964; }
-.demo.saved .toast { transform: translate(-50%, 0); }
-
-@media (prefers-reduced-motion: reduce) {
-  .demo *, .demo *::before { transition: none !important; animation: none !important; }
-}
 /* Telefonen skæres af nederst af skærmen selv, så skyggen ikke klippes til en firkant. */
 .hero .phone.demo { overflow: visible; max-height: none; }
 .demo .screen { max-height: 560px; }
