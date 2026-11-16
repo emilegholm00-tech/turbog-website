@@ -89,6 +89,11 @@ section { padding: 104px 0; }
 .btn.small { padding: 9px 18px; font-size: 15px; }
 .btn.dark { background: var(--brand); color: var(--on-brand); }
 
+/* Apples officielle "Hent i App Store"-mærke (dansk, sort). Bruges som det er: ikke farvet om eller strakt */
+.store-badge { display: inline-block; line-height: 0; border-radius: 12px; transition: transform 0.15s ease; }
+.store-badge img { display: block; width: auto; height: 60px; }
+.store-badge:hover { transform: translateY(-2px); }
+
 /* ---------- Toppen ---------- */
 
 .hero { color: var(--on-brand); background: var(--brand); padding: 64px 0 0; overflow: hidden; }
