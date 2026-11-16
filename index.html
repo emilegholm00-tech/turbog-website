@@ -12,9 +12,10 @@
 <meta property="og:url" content="https://turbogapp.dk/">
 <meta property="og:locale" content="da_DK">
 <meta name="apple-itunes-app" content="app-id=6831318578">
-<link rel="icon" href="img/icon.png">
-<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/logo-180.png">
 <link rel="canonical" href="https://turbogapp.dk/">
+<link rel="stylesheet" href="stageshow/stageshow.css">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -34,7 +35,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="./"><img src="img/icon.png" alt="">Turbog</a>
+    <a class="brand" href="./"><img src="img/logo.svg" alt="" width="34" height="34">Turbog</a>
     <nav>
       <a href="#saadan">Sådan virker det</a>
       <a href="korselsgodtgorelse-2026.html">Satser 2026</a>
@@ -48,76 +49,171 @@
 
 <main>
   <section class="hero">
-    <div class="wrap">
-      <div>
-        <h1>Kørebogen, der <span class="hl">fører sig selv</span></h1>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1>Kørebogen, der fører sig selv</h1>
         <p class="lead">Turbog registrerer dine køreture automatisk og viser præcis, hvor meget du skal have udbetalt i kørselsgodtgørelse. Ingen papir, ingen regneark, ingen glemte ture.</p>
-        <div class="pills"><span class="pill">GPS</span><span class="pill">CarPlay</span><span class="pill">Bluetooth</span><span class="pill">PDF og Excel</span></div>
         <a class="btn" href="https://apps.apple.com/dk/app/id6831318578">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16"/></svg>
           Hent gratis i App Store
         </a>
         <p class="note">Til iPhone · Gratis · Uden reklamer · Ingen konto påkrævet</p>
       </div>
-      <div class="phone demo">
-        <div class="screen">
-          <video src="video/turbog-app.mp4" poster="img/video-poster.jpg" width="600" height="1304" autoplay muted loop playsinline preload="metadata" aria-label="Optagelse af Turbog: en tur vælges som erhverv, ruten vises på kort, og oversigten viser beløbet til udbetaling måned for måned"></video>
-        </div>
+      <div class="hero-device">
+        <div class="ss-hero" id="turbog-demo" aria-label="Animation af Turbog: en afsluttet tur strøges til erhverv, og månedens beløb tæller op"></div>
+        <div class="boble b1" aria-hidden="true"><span class="prik"></span>Tur afsluttet · 42,0 km</div>
+        <div class="boble b2" aria-hidden="true">Gemt som erhverv</div>
+        <div class="boble b3" aria-hidden="true">November · 3.152 kr.</div>
       </div>
     </div>
+    <ul class="facts wrap">
+      <li><strong>Starter selv</strong><span>Med GPS</span></li>
+      <li><strong>Ét tryk</strong><span>Erhverv eller privat</span></li>
+      <li><strong>CarPlay</strong><span>På bilens skærm</span></li>
+      <li><strong>Gratis</strong><span>Ingen konto</span></li>
+    </ul>
   </section>
 
-  <section id="saadan">
+  <section class="intro" id="saadan">
     <div class="wrap center">
       <h2>Kør som du plejer</h2>
-      <p class="muted">Turbog er lavet til dig, der kører i din egen bil for din arbejdsgiver – fx sælgere, håndværkere, servicefolk, konsulenter og hjemmeplejen.</p>
-      <div class="grid3" style="text-align:left">
-        <div class="card">
-          <div class="icon" style="background:#0a60e6">📍</div>
-          <h3>1. Kør</h3>
-          <p>Turen starter af sig selv, når du kører. Rute, adresser og kilometer gemmes med GPS – også når telefonen ligger i lommen.</p>
-        </div>
-        <div class="card">
-          <div class="icon" style="background:#6b5ae0">👆</div>
-          <h3>2. Ét tryk</h3>
-          <p>Når bilen holder stille, spørger Turbog: erhverv eller privat? Svar direkte fra notifikationen eller på bilens CarPlay-skærm.</p>
-        </div>
-        <div class="card">
-          <div class="icon" style="background:#1fa855">💰</div>
-          <h3>3. Få pengene</h3>
-          <p>Send månedens opgørelse som PDF eller Excel til din arbejdsgiver med dato, rute, formål, kilometer og beløb.</p>
-        </div>
+      <p class="lead">Turbog er lavet til dig, der kører i din egen bil for din arbejdsgiver – fx sælgere, håndværkere, servicefolk, konsulenter og hjemmeplejen.</p>
+    </div>
+  </section>
+
+  <!-- Tre situationer. Hver har et lille stykke app, der spiller, når man ruller hen til det (anim.js) -->
+  <section class="scene s-gul" data-anim>
+    <div class="wrap scene-grid">
+      <div class="scene-text">
+        <p class="eyebrow">01 · Når du kører</p>
+        <h3>Kør</h3>
+        <p>Turen starter af sig selv, når du kører. Rute, adresser og kilometer gemmes med GPS – også når telefonen ligger i lommen.</p>
+      </div>
+      <div class="kort rute-kort" aria-hidden="true">
+        <svg viewBox="0 0 320 170" class="kortet">
+          <path class="vej" d="M24 140 C 80 140, 90 70, 150 78 S 230 120, 296 34"/>
+          <path class="rute" d="M24 140 C 80 140, 90 70, 150 78 S 230 120, 296 34"/>
+          <circle class="start" cx="24" cy="140" r="7"/>
+          <g class="pin"><path d="M296 34 l-9 -13 a11 11 0 1 1 18 0 z"/><circle cx="296" cy="15" r="4"/></g>
+        </svg>
+        <div class="kort-row"><span>Hjem → Kunde, Vejle</span><strong><span data-count="42" data-dec="1">0,0</span> km</strong></div>
+        <div class="status"><span class="prik"></span><span class="s-paa">Registrerer turen …</span><span class="s-slut">Tur afsluttet 08:19</span></div>
       </div>
     </div>
   </section>
 
-  <section class="soft">
-    <div class="wrap center">
-      <h2>Alt det, en kørebog skal kunne</h2>
-      <p class="muted">Statens takst for 2026 er udfyldt på forhånd. Du kan selv ændre satsen og slå to satser til, hvis du kører over 20.000 km om året.</p>
-      <div class="shots" tabindex="0" aria-label="Billeder fra appen">
-        <img src="img/da-2-udbetalt.jpg" alt="Se præcis, hvad du får udbetalt" loading="lazy" width="900" height="1955">
-        <img src="img/da-3-erhverv-privat.jpg" alt="Ét tryk: erhverv eller privat" loading="lazy" width="900" height="1955">
-        <img src="img/da-4-rute.jpg" alt="Rute, adresser og km på hver tur" loading="lazy" width="900" height="1955">
-        <img src="img/da-5-opgoerelse.jpg" alt="Opgørelsen klar til arbejdsgiveren" loading="lazy" width="900" height="1955">
-        <img src="img/da-6-glemt-tur.jpg" alt="Glemt en tur? Tilføj den på sekunder" loading="lazy" width="900" height="1955">
-        <img src="img/da-7-gratis.jpg" alt="Gratis, uden reklamer, uden konto" loading="lazy" width="900" height="1955">
+  <section class="scene s-grafit" data-anim>
+    <div class="wrap scene-grid vend">
+      <div class="scene-text">
+        <p class="eyebrow">02 · Når bilen holder stille</p>
+        <h3>Ét tryk</h3>
+        <p>Når bilen holder stille, spørger Turbog: erhverv eller privat? Svar direkte fra notifikationen eller på bilens CarPlay-skærm.</p>
+      </div>
+      <div class="notif-stak" aria-hidden="true">
+        <div class="notif">
+          <img src="img/logo.svg" alt="" width="38" height="38">
+          <div>
+            <div class="notif-top"><strong>Turbog</strong><span>nu</span></div>
+            <div class="notif-titel">Tur afsluttet: 31,4 km</div>
+            <div class="notif-tekst">Vejle → Horsens. Var det erhverv eller privat?</div>
+          </div>
+        </div>
+        <div class="valg"><span class="v-erhverv">Erhverv</span><span>Privat</span></div>
+        <div class="gemt">Gemt som erhverv · 123,72 kr.</div>
       </div>
     </div>
   </section>
 
-  <section id="beregner">
+  <section class="scene s-papir" data-anim>
+    <div class="wrap scene-grid">
+      <div class="scene-text">
+        <p class="eyebrow">03 · Sidst på måneden</p>
+        <h3>Få pengene</h3>
+        <p>Send månedens opgørelse som PDF eller Excel til din arbejdsgiver med dato, rute, formål, kilometer og beløb.</p>
+      </div>
+      <div class="kort rapport" aria-hidden="true">
+        <div class="rapport-top"><strong>Kørselsgodtgørelse</strong><span>November 2026</span></div>
+        <ul>
+          <li><span>2/11</span><span>Hjem → Kunde, Vejle</span><span>42,0 km</span></li>
+          <li><span>2/11</span><span>Vejle → Horsens</span><span>31,4 km</span></li>
+          <li><span>3/11</span><span>Horsens → Aarhus</span><span>48,8 km</span></li>
+          <li><span>4/11</span><span>Aarhus → Silkeborg</span><span>44,3 km</span></li>
+          <li class="flere"><span></span><span>+ 21 ture mere</span><span>633,5 km</span></li>
+        </ul>
+        <div class="rapport-sum"><span>Til udbetaling</span><strong><span data-count="3152">0</span> kr.</strong></div>
+        <div class="rapport-knapper"><span>PDF</span><span>Excel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mere">
+    <div class="wrap">
+      <h2 class="center">Flere funktioner</h2>
+      <div class="bento">
+        <article class="felt" data-anim>
+          <div class="mini carplay" aria-hidden="true">
+            <div class="cp-top"><span>Turbog</span><span>12,4 km i dag</span></div>
+            <div class="cp-knapper"><span class="v-erhverv">Erhverv</span><span>Privat</span></div>
+          </div>
+          <h3>Turbog i CarPlay</h3>
+          <p>Start og afslut ture, se dagens kilometer og vælg erhverv eller privat på bilens skærm.</p>
+        </article>
+        <article class="felt" data-anim>
+          <div class="mini advarsel" aria-hidden="true">
+            <div class="adv-linje"><span>Hjem → Fast arbejdsplads</span><span>12,6 km</span></div>
+            <div class="adv-chip">Giver normalt ikke skattefri godtgørelse</div>
+          </div>
+          <h3>Advarsel om hjem–arbejde</h3>
+          <p>Gem hjem og fast arbejdsplads, så advarer Turbog om kørsel, der normalt ikke giver skattefri godtgørelse.</p>
+        </article>
+        <article class="felt" data-anim>
+          <div class="mini stat" aria-hidden="true">
+            <span style="--h:46%"></span><span style="--h:78%"></span><span style="--h:60%"></span><span style="--h:92%"></span><span style="--h:38%"></span><span class="fri" style="--h:14%"></span><span class="fri" style="--h:8%"></span>
+          </div>
+          <h3>Statistik</h3>
+          <p>Se hvor meget du kører, din længste tur, hvilke dage du kører mest, og hvor stor en del der er privat.</p>
+        </article>
+        <article class="felt" data-anim>
+          <div class="mini glemt" aria-hidden="true">
+            <div class="g-linje"><span>Horsens → Aarhus</span><span>48,8 km</span></div>
+            <div class="g-linje ny"><span>Aarhus → Randers <em>tilføjet</em></span><span>38,2 km</span></div>
+          </div>
+          <h3>Glemt en tur?</h3>
+          <p>Tilføj den manuelt. Adressen findes for dig, og kilometer beregnes ud fra bilruten.</p>
+        </article>
+        <article class="felt" data-anim>
+          <div class="mini samlet" aria-hidden="true">
+            <div class="g-linje del1"><span>Aarhus → Tank</span><span>11,9 km</span></div>
+            <div class="g-linje del2"><span>Tank → Silkeborg</span><span>32,4 km</span></div>
+            <div class="g-linje hel"><span>Aarhus → Silkeborg</span><span>44,3 km</span></div>
+          </div>
+          <h3>Slå ture sammen</h3>
+          <p>Har et stop ved tanken delt én tur i to? Slå dem sammen med ét tryk.</p>
+        </article>
+        <article class="felt" data-anim>
+          <div class="mini laas" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>På din iPhone · I din iCloud</span>
+          </div>
+          <h3>Dine data er dine</h3>
+          <p>Ingen reklamer og ingen sporing. Turene gemmes på din iPhone og i din egen iCloud.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="regn" id="beregner">
     <div class="wrap">
       <div class="center">
         <h2>Hvor meget skal du have udbetalt?</h2>
-        <p class="muted">Skriv, hvor mange kilometer du kører for din arbejdsgiver om måneden. Beregneren bruger statens satser for skattefri kørselsgodtgørelse i 2026.</p>
+        <p class="lead">Skriv, hvor mange kilometer du kører for din arbejdsgiver om måneden. Beregneren bruger statens satser for skattefri kørselsgodtgørelse i 2026.</p>
       </div>
       <div class="calc" data-calc>
         <div class="in">
           <label for="km">Erhvervskilometer pr. måned</label>
           <div class="field"><input id="km" type="number" inputmode="numeric" min="0" step="50" value="800"><span>km</span></div>
           <input type="range" min="0" max="4000" step="50" value="800" aria-label="Kilometer pr. måned">
-          <p class="muted" style="margin-top:18px">Kører du mere end ca. 1.667 km om måneden, rammer du grænsen på 20.000 km om året, og resten af året gælder den lave sats.</p>
+          <p class="muted">Kører du mere end ca. 1.667 km om måneden, rammer du grænsen på 20.000 km om året, og resten af året gælder den lave sats.</p>
         </div>
         <div class="out" aria-live="polite">
           <div>Pr. måned i gennemsnit</div>
@@ -127,26 +223,29 @@
           <small data-out="note"></small>
         </div>
       </div>
-      <p class="center" style="margin-top:20px"><a href="korselsgodtgorelse-2026.html">Læs mere om satserne og reglerne for 2026 →</a><br><span class="muted">Fører du hellere kørebog i Excel? <a href="korebog-skabelon.html">Hent den gratis skabelon</a>.</span></p>
+      <p class="calc-links center"><a href="korselsgodtgorelse-2026.html">Læs mere om satserne og reglerne for 2026 →</a><br><span class="muted">Fører du hellere kørebog i Excel? <a href="korebog-skabelon.html">Hent den gratis skabelon</a>.</span></p>
     </div>
   </section>
 
-  <section class="soft">
+  <section class="billeder">
     <div class="wrap">
-      <div class="grid3">
-        <div class="card"><h3>🚗 Turbog i CarPlay</h3><p>Start og afslut ture, se dagens kilometer og vælg erhverv eller privat på bilens skærm.</p></div>
-        <div class="card"><h3>🏠 Advarsel om hjem–arbejde</h3><p>Gem hjem og fast arbejdsplads, så advarer Turbog om kørsel, der normalt ikke giver skattefri godtgørelse.</p></div>
-        <div class="card"><h3>📊 Statistik</h3><p>Se hvor meget du kører, din længste tur, hvilke dage du kører mest, og hvor stor en del der er privat.</p></div>
-        <div class="card"><h3>✍️ Glemt en tur?</h3><p>Tilføj den manuelt. Adressen findes for dig, og kilometer beregnes ud fra bilruten.</p></div>
-        <div class="card"><h3>🔗 Slå ture sammen</h3><p>Har et stop ved tanken delt én tur i to? Slå dem sammen med ét tryk.</p></div>
-        <div class="card"><h3>🔒 Dine data er dine</h3><p>Ingen reklamer og ingen sporing. Turene gemmes på din iPhone og i din egen iCloud.</p></div>
+      <h2 class="center">Alt det, en kørebog skal kunne</h2>
+      <p class="lead center">Statens takst for 2026 er udfyldt på forhånd. Du kan selv ændre satsen og slå to satser til, hvis du kører over 20.000 km om året.</p>
+      <div class="shots" tabindex="0" aria-label="Billeder fra appen">
+        <img src="img/da-2-udbetalt.jpg" alt="Se præcis, hvad du får udbetalt" loading="lazy" width="900" height="1955">
+        <img src="img/da-3-erhverv-privat.jpg" alt="Ét tryk: erhverv eller privat" loading="lazy" width="900" height="1955">
+        <img src="img/da-8-statistik.jpg" alt="Se hvor meget du kører: km, tophastighed og køredage" loading="lazy" width="900" height="1955">
+        <img src="img/da-4-rute.jpg" alt="Rute, adresser og km på hver tur" loading="lazy" width="900" height="1955">
+        <img src="img/da-5-opgoerelse.jpg" alt="Opgørelsen klar til arbejdsgiveren" loading="lazy" width="900" height="1955">
+        <img src="img/da-6-glemt-tur.jpg" alt="Glemt en tur? Tilføj den på sekunder" loading="lazy" width="900" height="1955">
+        <img src="img/da-7-gratis.jpg" alt="Gratis, uden reklamer, uden konto" loading="lazy" width="900" height="1955">
       </div>
     </div>
   </section>
 
   <section id="support">
-    <div class="wrap narrow">
-      <h2>Spørgsmål og support</h2>
+    <div class="wrap faq">
+      <h2 class="center">Spørgsmål og support</h2>
       <details>
         <summary>Hvad koster Turbog?</summary>
         <p>Turbog er gratis. Der er ingen reklamer, og du behøver ikke oprette en konto.</p>
@@ -171,15 +270,16 @@
         <summary>Kan jeg slå registreringen fra i ferien?</summary>
         <p>Ja. Slå "Al kørsel er privat" til under Indstillinger. Så gemmes turene som private, og du bliver ikke spurgt.</p>
       </details>
-      <p style="margin-top:28px">Har du andre spørgsmål eller problemer, så skriv til <a href="mailto:support@turbogapp.dk">support@turbogapp.dk</a>.</p>
+      <p class="support-mail">Har du andre spørgsmål eller problemer, så skriv til <a href="mailto:support@turbogapp.dk">support@turbogapp.dk</a>.</p>
     </div>
   </section>
 
   <section class="cta">
-    <div class="wrap narrow">
+    <div class="wrap center">
+      <img class="cta-logo" src="img/logo.svg" alt="" width="112" height="112">
       <h2>Lad kørebogen føre sig selv</h2>
       <p>Hent Turbog gratis og se, hvad du skal have udbetalt allerede efter første tur.</p>
-      <a class="btn" href="https://apps.apple.com/dk/app/id6831318578">Hent gratis i App Store</a>
+      <a class="btn dark" href="https://apps.apple.com/dk/app/id6831318578">Hent gratis i App Store</a>
     </div>
   </section>
 </main>
@@ -197,6 +297,8 @@
 </footer>
 
 <script src="calc.js"></script>
+<script src="anim.js" defer></script>
+<script type="module" src="stageshow/turbog-demo.js"></script>
 <!-- GoatCounter: tæller besøgende uden cookies. Værtsnavnet sættes foran stien, så én konto dækker alle sider. -->
 <script>window.goatcounter = { path: function (p) { return location.host + p } }</script>
 <script data-goatcounter="https://emilegholm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
